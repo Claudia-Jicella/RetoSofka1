@@ -4,30 +4,21 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnSingleCandi
 
 public class Juego {
 
-    private int puntaje;
-    private int ronda;
-    private int rondaMaxima;
-    private Jugador jugador;
-    private boolean termina;
+    public int puntaje;
+    public int ronda;
+    public Jugador jugador;
+    public boolean terminado;
 
-    private Juego (int rondaMaxima, Jugador jugador){
+    public Juego ( Jugador jugador){
         this.puntaje= 0;
         this.ronda= 1;
-        this.termina= false;
-        this.rondaMaxima= rondaMaxima;
+        this.terminado= false;
         this.jugador= jugador;
     }
-    private void nivel1(int puntos){
+    public void sumarPuntos(int puntos){
         this.puntaje = puntaje+puntos;
         this.ronda = ronda+1;
-        if(this.ronda> rondaMaxima) {
-            this.termina= true;
-        }
 
-    }
-
-    private void terminarJuego(boolean finaliza){
-        this.termina= finaliza;
     }
 
 

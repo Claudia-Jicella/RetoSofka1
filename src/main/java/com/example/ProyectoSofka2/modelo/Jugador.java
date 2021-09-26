@@ -1,14 +1,16 @@
 package com.example.ProyectoSofka2.modelo;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "jugadores")
 public class Jugador {
 
     @Id
-    private String id;
+    public String id;
 
-    private String nombre;
-    private int puntos;
+    public String nombre;
+    public int puntos;
 
     public Jugador (String nombre, int puntos){
 
@@ -16,8 +18,8 @@ public class Jugador {
         this.puntos= puntos;
     }
 
-    public void agregarPuntos(int score){
-        this.puntos = puntos + (score*20);
+    public void agregarPuntos(int puntosGanados){
+        this.puntos = puntos + puntosGanados;
 
         System.out.println("Nombre Del Jugador= " + nombre + "\nNumero De Puntos= " + puntos);
     }
